@@ -25,7 +25,7 @@ public class CommentsContentProvider extends ContentProvider
     private static final int COMMENTS = 10;
     private static final int COMMENT_ID = 20;
 
-    private static final String AUTHORITY = "com.tinywebgears.dontmissathing.contentprovider";
+    private static final String AUTHORITY = "com.tinywebgears.basedroid.contentprovider";
 
     private static final String BASE_PATH = "comments";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
