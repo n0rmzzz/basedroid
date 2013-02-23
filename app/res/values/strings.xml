@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Base Droid</string>
+    <string name="title_item_detail">Event Details</string>
+    <string name="description_search">Search</string>
+    <string name="description_create">Create</string>
+    <string name="description_remove">Remove</string>
+    <string name="description_remove_all">Remove All</string>
+
+</resources>
