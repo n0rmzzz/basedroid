@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -135,7 +134,7 @@ public class ItemListFragment extends SherlockListFragment implements LoaderMana
         {
         case R.id.menu_create:
             createNewComment();
-            Toast.makeText(getActivity(), "New comment created.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), R.string.text_item_created, Toast.LENGTH_SHORT).show();
             return true;
         }
         return false;

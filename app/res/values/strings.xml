@@ -6,6 +6,7 @@
     <string name="description_search">Search</string>
     <string name="description_create">Create</string>
     <string name="description_remove">Remove</string>
-    <string name="description_remove_all">Remove All</string>
+    <string name="text_item_created">New comment created.</string>
+    <string name="text_item_removed">Comment removed.</string>
 
 </resources>

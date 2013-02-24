@@ -96,7 +96,7 @@ public class ItemDetailFragment extends SherlockFragment
         case R.id.menu_remove:
             removeComment();
             mCallbacks.onCommentRemvoed();
-            Toast.makeText(getActivity(), "Comments removed.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), R.string.text_item_removed, Toast.LENGTH_SHORT).show();
             return true;
         }
         return false;
