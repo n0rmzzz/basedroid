@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -59,9 +60,9 @@ public class ItemListFragment extends SherlockListFragment implements LoaderMana
     {
         super.onCreate(savedInstanceState);
 
-        mAdapter = new SimpleCursorAdapter(getActivity(), android.R.layout.simple_list_item_2, null, new String[] {
-                MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_COMMENT }, new int[] { android.R.id.text1,
-                android.R.id.text2 }, 0);
+        mAdapter = new SimpleCursorAdapter(getActivity(), VersionDependentConstants.getListItemLayout(), null,
+                new String[] { MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_COMMENT }, new int[] {
+                        android.R.id.text1, android.R.id.text2 }, 0);
         getLoaderManager().initLoader(0, null, this);
         setListAdapter(mAdapter);
 

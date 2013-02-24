@@ -1,11 +1,18 @@
 package com.tinywebgears.basedroid.view;
 
+import javax.annotation.Nullable;
+
+import roboguice.inject.ContentView;
+import roboguice.inject.InjectFragment;
+import roboguice.inject.InjectView;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.widget.FrameLayout;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
+import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockFragmentActivity;
 import com.tinywebgears.basedroid.R;
 import com.tinywebgears.basedroid.contentprovider.CommentsContentProvider;
 
@@ -13,23 +20,30 @@ import com.tinywebgears.basedroid.contentprovider.CommentsContentProvider;
  * An activity representing a list of Items. This activity has different presentations for handset and tablets,
  * including an {@link ItemListFragment} and an {@link ItemDetailFragment} if it fits the screen.
  */
-public class ItemListActivity extends SherlockFragmentActivity implements ItemListFragment.Callbacks,
+@ContentView(R.layout.activity_item_list)
+public class ItemListActivity extends RoboSherlockFragmentActivity implements ItemListFragment.Callbacks,
         ItemDetailFragment.Callbacks
 {
     private boolean mTwoPane;
+
+    @Nullable
+    @InjectView(R.id.item_detail_container)
+    FrameLayout itemDetailContainer;
+
+    @Nullable
+    @InjectFragment(R.id.item_list)
+    Fragment itemListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_list);
 
-        if (findViewById(R.id.item_detail_container) != null)
+        if (itemDetailContainer != null)
         {
             mTwoPane = true;
             // In two-pane mode, list items should be given the 'activated' state when touched.
-            ((ItemListFragment) getSupportFragmentManager().findFragmentById(R.id.item_list))
-                    .setActivateOnItemClick(true);
+            ((ItemListFragment) itemListFragment).setActivateOnItemClick(true);
         }
     }
 

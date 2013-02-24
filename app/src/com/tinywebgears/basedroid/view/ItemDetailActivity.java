@@ -1,25 +1,26 @@
 package com.tinywebgears.basedroid.view;
 
+import roboguice.inject.ContentView;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
+import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockFragmentActivity;
 import com.tinywebgears.basedroid.R;
 import com.tinywebgears.basedroid.contentprovider.CommentsContentProvider;
 
 /**
  * An activity representing a single Item detail screen. This activity is only used on handsets.
  */
-public class ItemDetailActivity extends SherlockFragmentActivity implements ItemDetailFragment.Callbacks
+@ContentView(R.layout.activity_item_detail)
+public class ItemDetailActivity extends RoboSherlockFragmentActivity implements ItemDetailFragment.Callbacks
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_detail);
 
         // Show the Up button in the action bar.
         getSherlock().getActionBar().setDisplayHomeAsUpEnabled(true);
